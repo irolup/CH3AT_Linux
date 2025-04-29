@@ -1,0 +1,11 @@
+# Object files
+*.o
+
+# Executable
+CH3AT
+
+# ImGui ini config file
+imgui.ini
+
+# Configuration directory for VSCode
+.vscode/
