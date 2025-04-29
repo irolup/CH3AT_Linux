@@ -25,7 +25,7 @@
 3. Run the following command to launch the trainer:
  ./CH3AT
   The CH3AT trainer menu will appear in a separate window, allowing you to modify values from the provided Cheat Engine table.
-  You can scroll through the available values and change them as desired.
+  You can scroll through the available values and change them as desired when clicking on the "Patch" button.
   To restore a default value, press the Reset button next to the value you want to reset.
 
 ## Building
