@@ -15,6 +15,21 @@
 #include "patch_helpers.h"
 #include "table.h"
 
+void setGLFWPlatformHint() {
+#if GLFW_VERSION_MAJOR >= 3 && GLFW_VERSION_MINOR >= 4
+    const char* sessionType = getenv("XDG_SESSION_TYPE");
+    const char* waylandDisplay = getenv("WAYLAND_DISPLAY");
+
+    if ((sessionType && strcmp(sessionType, "wayland") == 0) ||
+        waylandDisplay != nullptr) {
+        std::cout << "[GLFW] Using Wayland backend\n";
+        glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_WAYLAND);
+    } else {
+        std::cout << "[GLFW] Using X11 backend\n";
+        glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);
+    }
+#endif
+}
 
 int main(int argc, char* argv[]) {
 
@@ -45,6 +60,7 @@ int main(int argc, char* argv[]) {
         cheat.currentValue = val;
     }
 
+    setGLFWPlatformHint();
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW." << std::endl;
         return -1;

@@ -1,6 +1,6 @@
-# Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g -Ivendor/imgui -Ivendor/imgui/backends -Ivendor/rapidxml
+CXXFLAGS = -std=c++17 -Wall -g \
+    -Ivendor/imgui -Ivendor/imgui/backends -Ivendor/rapidxml
 
 # Output binary name
 TARGET = CH3AT
@@ -19,7 +19,9 @@ SRCS = main.cpp patch_helpers.cpp process_helpers.cpp \
 OBJS = $(SRCS:.cpp=.o)
 
 # Libraries to link
-LIBS = -lglfw -lGL
+# Assuming glfw3.4 is installed system-wide and pkg-config can find it
+LIBS = $(shell pkg-config --libs glfw3) -lGL -ldl -lpthread -lm
+CXXFLAGS += $(shell pkg-config --cflags glfw3)
 
 # Default target
 all: $(TARGET)
