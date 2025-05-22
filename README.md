@@ -34,7 +34,8 @@
    git clone https://github.com/irolup/CH3AT_Linux.git
    cd CH3AT_Linux
 2. Install the necessary dependencies:
+   # This project was developed and tested with GLFW 3.4, but GLFW 3.5.0 or newer should also work.
    sudo apt-get install libglfw3-dev libglew-dev
-3. Build the project: After installing the dependencies, simply run:
+4. Build the project: After installing the dependencies, simply run:
    make
-4. Once the build is complete, run the program:
+5. Once the build is complete, run the program:
