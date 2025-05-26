@@ -37,4 +37,4 @@
    sudo apt-get install libglfw3-dev libglew-dev
 4. Build the project: After installing the dependencies, simply run:
    make
-5. Once the build is complete, run the program:
+5. Once the build is complete, run the program (as ROOT if not wokring as non-root):
